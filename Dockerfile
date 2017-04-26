@@ -1,6 +1,6 @@
 #FROM centos:6
 # This is a RHEL 7 image from Redhat
-FROM registry.access.redhat.com/rhel7
+FROM rhel7:latest
 
 MAINTAINER Couchbase Docker Team <docker@couchbase.com>
 
@@ -43,9 +43,9 @@ RUN groupadd -g1000 couchbase && \
     useradd couchbase -g couchbase -u1000 -m -s /bin/bash && \
     echo 'couchbase:couchbase' | chpasswd
 
-ENV CB_VERSION=4.5.0 \
+ENV CB_VERSION=4.6.1 \
     CB_RELEASE_URL=http://packages.couchbase.com/releases \
-    CB_PACKAGE=couchbase-server-enterprise-4.5.0-centos7.x86_64.rpm \
+    CB_PACKAGE=couchbase-server-enterprise-4.6.1-centos7.x86_64.rpm \
     PATH=$PATH:/opt/couchbase/bin:/opt/couchbase/bin/tools:/opt/couchbase/bin/install
 
 # Install couchbase
